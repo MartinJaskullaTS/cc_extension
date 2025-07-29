@@ -1,0 +1,1431 @@
+[
+  {
+    "basePath": "audit-process-b2b-start-plugin/78a42520396ed194b0bb1141cd87a2f20acd0efa",
+    "active": true,
+    "autostart": true,
+    "dependencies": [],
+    "name": "audit-process-b2b-start-plugin",
+    "resources": [
+      {
+        "options": {},
+        "type": "js",
+        "key": "main.js"
+      }
+    ]
+  },
+  {
+    "basePath": "audit-process-b2b-ui-plugin/84ee54b6faee3cef3c41070e6e5dc32f5ab92917",
+    "active": true,
+    "autostart": false,
+    "dependencies": [],
+    "name": "audit-process-b2b-ui-plugin",
+    "resources": [
+      {
+        "options": {},
+        "type": "js",
+        "key": "runtime.js"
+      },
+      {
+        "options": {},
+        "type": "js",
+        "key": "vendor.js"
+      },
+      {
+        "options": {},
+        "type": "js",
+        "key": "main.js"
+      },
+      {
+        "options": {
+          "nomodule": true
+        },
+        "type": "js",
+        "key": "polyfills-es5.js"
+      },
+      {
+        "options": {},
+        "type": "js",
+        "key": "polyfills.js"
+      },
+      {
+        "options": {},
+        "type": "js",
+        "key": "styles.js"
+      }
+    ]
+  },
+  {
+    "basePath": "control-centre-ui/ed210b40a05f673bc44ebbe3133f8347967b1a7d",
+    "active": true,
+    "autostart": false,
+    "dependencies": [
+      "feedback-start"
+    ],
+    "name": "control-centre-ui",
+    "resources": [
+      {
+        "options": {},
+        "type": "js",
+        "key": "runtime.js"
+      },
+      {
+        "options": {},
+        "type": "js",
+        "key": "vendor.js"
+      },
+      {
+        "options": {},
+        "type": "js",
+        "key": "main.js"
+      },
+      {
+        "options": {
+          "nomodule": true
+        },
+        "type": "js",
+        "key": "polyfills-es5.js"
+      },
+      {
+        "options": {},
+        "type": "js",
+        "key": "polyfills.js"
+      }
+    ]
+  },
+  {
+    "basePath": "etrusted-competitor-dashboard-ui/bca5f66fdbd424c41a77b6547478c284af425e75",
+    "active": true,
+    "autostart": false,
+    "dependencies": [],
+    "name": "etrusted-competitor-dashboard-ui",
+    "resources": [
+      {
+        "options": {},
+        "type": "js",
+        "key": "assets/main-BgNdvrjH.js"
+      }
+    ]
+  },
+  {
+    "basePath": "etrusted-custom-sender-settings-app-start/352a7d88d8ac1fff9f3734f23c63fb45dd3fed9b",
+    "active": true,
+    "autostart": true,
+    "dependencies": [],
+    "name": "etrusted-custom-sender-settings-app-start",
+    "resources": [
+      {
+        "options": {},
+        "type": "js",
+        "key": "assets/main-1750847856974-Duz-5dhh.js"
+      }
+    ]
+  },
+  {
+    "basePath": "etrusted-custom-sender-settings-app-ui/5566706c9ea2fb3812a96b82cae91873e4a84d01",
+    "active": true,
+    "autostart": false,
+    "dependencies": [],
+    "name": "etrusted-custom-sender-settings-app-ui",
+    "resources": [
+      {
+        "options": {},
+        "type": "js",
+        "key": "assets/main-1750847867207-BWJ3S3xd.js"
+      }
+    ]
+  },
+  {
+    "basePath": "etrusted-event-settings-app-start/6a0c18a948a05cc619db37f01cd14c2df6248403",
+    "active": true,
+    "autostart": true,
+    "dependencies": [
+      "trustedshops_tswp-plugin-settings"
+    ],
+    "name": "etrusted-event-settings-app-start",
+    "resources": [
+      {
+        "options": {},
+        "type": "js",
+        "key": "main.js"
+      }
+    ]
+  },
+  {
+    "basePath": "etrusted-event-settings-app-ui/40c8380946219ddd588392d33f53c5fb5f74928c",
+    "active": true,
+    "autostart": false,
+    "dependencies": [],
+    "name": "etrusted-event-settings-app-ui",
+    "resources": [
+      {
+        "options": {},
+        "type": "js",
+        "key": "runtime.js"
+      },
+      {
+        "options": {},
+        "type": "js",
+        "key": "main.js"
+      },
+      {
+        "options": {},
+        "type": "js",
+        "key": "polyfills.js"
+      },
+      {
+        "options": {},
+        "type": "css",
+        "key": "styles.css"
+      }
+    ]
+  },
+  {
+    "basePath": "etrusted-insights-dashboard-start/dc3560c84098ed8c3a0a9b7773b3a164ca28c96f",
+    "active": true,
+    "autostart": true,
+    "dependencies": [],
+    "name": "etrusted-insights-dashboard-start",
+    "resources": [
+      {
+        "options": {},
+        "type": "js",
+        "key": "assets/main-DPfZDdY1.js"
+      }
+    ]
+  },
+  {
+    "basePath": "etrusted-invite-conversion-dashboard-ui/99a7a33a9bb28fdab4977fda9455622c339498e4",
+    "active": true,
+    "autostart": false,
+    "dependencies": [],
+    "name": "etrusted-invite-conversion-dashboard-ui",
+    "resources": [
+      {
+        "options": {},
+        "type": "js",
+        "key": "assets/main-BiE8wE5i.js"
+      }
+    ]
+  },
+  {
+    "basePath": "etrusted-invite-history-app-ui/06b1f1ad17b37dee4c6216490593dfa5b6c7cf5a",
+    "active": true,
+    "autostart": false,
+    "dependencies": [],
+    "name": "etrusted-invite-history-app-ui",
+    "resources": [
+      {
+        "options": {},
+        "type": "js",
+        "key": "runtime.ba06ef870e085477.js"
+      },
+      {
+        "options": {},
+        "type": "js",
+        "key": "main.2cd2782f0284ac33.js"
+      },
+      {
+        "options": {},
+        "type": "js",
+        "key": "polyfills.5bf194b7637bfd3e.js"
+      },
+      {
+        "options": {},
+        "type": "css",
+        "key": "styles.ef46db3751d8e999.css"
+      }
+    ]
+  },
+  {
+    "basePath": "etrusted-invite-send-app-ui/aae265be78b3c52e4e86e27c4ab49ec7bc0b2b65",
+    "active": true,
+    "autostart": false,
+    "dependencies": [],
+    "name": "etrusted-invite-send-app-ui",
+    "resources": [
+      {
+        "options": {},
+        "type": "js",
+        "key": "runtime.1b9b66f7ef30642e.js"
+      },
+      {
+        "options": {},
+        "type": "js",
+        "key": "main.db536e8da75630bb.js"
+      },
+      {
+        "options": {},
+        "type": "js",
+        "key": "polyfills.02ccf9a85c04dcac.js"
+      },
+      {
+        "options": {},
+        "type": "css",
+        "key": "styles.6702a7b81eb72104.css"
+      }
+    ]
+  },
+  {
+    "basePath": "etrusted-reputation-manager-app-ui/43549a65290fd32539cdfb1689ae0248e799ab41",
+    "active": true,
+    "autostart": false,
+    "dependencies": [],
+    "name": "etrusted-reputation-manager-app-ui",
+    "resources": [
+      {
+        "options": {},
+        "type": "js",
+        "key": "runtime.f8b72e076d6b9712.js"
+      },
+      {
+        "options": {},
+        "type": "js",
+        "key": "main.2b777761ba21cc1f.js"
+      },
+      {
+        "options": {},
+        "type": "js",
+        "key": "polyfills.6dfc68fdea1b52bf.js"
+      },
+      {
+        "options": {},
+        "type": "css",
+        "key": "styles.ef46db3751d8e999.css"
+      }
+    ]
+  },
+  {
+    "basePath": "etrusted-review-insights-dashboard-ui/ce9028c59f39c50970a84312acb7a62d1091a45d",
+    "active": true,
+    "autostart": false,
+    "dependencies": [],
+    "name": "etrusted-review-insights-dashboard-ui",
+    "resources": [
+      {
+        "options": {},
+        "type": "js",
+        "key": "assets/main-DT9rhLcs.js"
+      }
+    ]
+  },
+  {
+    "basePath": "etrusted-sentiment-analysis-dashboard-ui/8cb8eba64d1915fba2003230f28833ff48b86fa3",
+    "active": true,
+    "autostart": false,
+    "dependencies": [],
+    "name": "etrusted-sentiment-analysis-dashboard-ui",
+    "resources": [
+      {
+        "options": {},
+        "type": "js",
+        "key": "assets/main-_bRNckx7.js"
+      }
+    ]
+  },
+  {
+    "basePath": "etrusted-sentiment-analysis-details-dashboard-ui/fda074ae5faeb4a3593d365ff3378ff46ac3aa4c",
+    "active": true,
+    "autostart": false,
+    "dependencies": [],
+    "name": "etrusted-sentiment-analysis-details-dashboard-ui",
+    "resources": [
+      {
+        "options": {},
+        "type": "js",
+        "key": "assets/main-CJsNK3fG.js"
+      }
+    ]
+  },
+  {
+    "basePath": "etrusted-user-settings/2b17bbffd958ad7ac2db2cc5521ff8213885c196",
+    "active": true,
+    "autostart": false,
+    "dependencies": [
+      "feedback-start",
+      "kpi-bar-start-plugin",
+      "task-management-start"
+    ],
+    "name": "etrusted-user-settings",
+    "resources": [
+      {
+        "options": {},
+        "type": "js",
+        "key": "assets/main-Bna40nMV.js"
+      }
+    ]
+  },
+  {
+    "basePath": "etrusted-user-settings-start/15361d3d621a5face14ee3c8ee3376d3ff6b5a33",
+    "active": true,
+    "autostart": true,
+    "dependencies": [
+      "feedback-start",
+      "kpi-bar-start-plugin",
+      "task-management-start"
+    ],
+    "name": "etrusted-user-settings-start",
+    "resources": [
+      {
+        "options": {},
+        "type": "js",
+        "key": "assets/main-BsERSaPq.js"
+      }
+    ]
+  },
+  {
+    "basePath": "feedback-start/065eae522b8a48cbfdf9b7b4ec54d2e619b2489f",
+    "active": true,
+    "autostart": true,
+    "dependencies": [],
+    "name": "feedback-start",
+    "resources": [
+      {
+        "options": {},
+        "type": "js",
+        "key": "index.js"
+      }
+    ]
+  },
+  {
+    "basePath": "feedback-ui/7bb2f55b5f2490ba4e96b8fe426367bf8c2f6a7e",
+    "active": true,
+    "autostart": false,
+    "dependencies": [
+      "feedback-start"
+    ],
+    "name": "feedback-ui",
+    "resources": [
+      {
+        "options": {},
+        "type": "js",
+        "key": "runtime~main.bundle.js"
+      },
+      {
+        "options": {},
+        "type": "js",
+        "key": "vendors.bundle.js"
+      },
+      {
+        "options": {},
+        "type": "js",
+        "key": "main.bundle.js"
+      }
+    ]
+  },
+  {
+    "basePath": "guarantees-insights-ui-plugin/5521b457e57816fa28c57f28f36e5c0a40649156",
+    "active": true,
+    "autostart": true,
+    "dependencies": [],
+    "name": "guarantees-insights-ui-plugin",
+    "resources": [
+      {
+        "options": {},
+        "type": "js",
+        "key": "vendor.bundle.js"
+      },
+      {
+        "options": {},
+        "type": "js",
+        "key": "main.bundle.js"
+      }
+    ]
+  },
+  {
+    "basePath": "guarantees-start-plugin/344472cfb2e1bfe6b7679224c09037aba364109e",
+    "active": true,
+    "autostart": true,
+    "dependencies": [
+      "task-management-start",
+      "kpi-bar-start-plugin"
+    ],
+    "name": "guarantees-start-plugin",
+    "resources": [
+      {
+        "options": {},
+        "type": "js",
+        "key": "vendor.bundle.js"
+      },
+      {
+        "options": {},
+        "type": "js",
+        "key": "main.bundle.js"
+      }
+    ]
+  },
+  {
+    "basePath": "guarantees-ui-plugin/adf0b67d588eda3b415356fff9832958f76a1bd5",
+    "active": true,
+    "autostart": false,
+    "dependencies": [],
+    "name": "guarantees-ui-plugin",
+    "resources": [
+      {
+        "options": {},
+        "type": "js",
+        "key": "vendor.bundle.js"
+      },
+      {
+        "options": {},
+        "type": "js",
+        "key": "main.bundle.js"
+      }
+    ]
+  },
+  {
+    "basePath": "invite-rules-start/1b5e7778227df8e8274fefe0e8ccb9c3de1d25bd",
+    "active": true,
+    "autostart": true,
+    "dependencies": [
+      "trustedshops_tswp-plugin-channel-management-autostart"
+    ],
+    "name": "invite-rules-start",
+    "resources": [
+      {
+        "options": {},
+        "type": "js",
+        "key": "main.js"
+      }
+    ]
+  },
+  {
+    "basePath": "invite-rules-ui/c070d238e5d57f87668cc8696e7f49ff03a9ace4",
+    "active": true,
+    "autostart": false,
+    "dependencies": [],
+    "name": "invite-rules-ui",
+    "resources": [
+      {
+        "options": {},
+        "type": "js",
+        "key": "runtime.js"
+      },
+      {
+        "options": {},
+        "type": "js",
+        "key": "main.js"
+      },
+      {
+        "options": {},
+        "type": "js",
+        "key": "polyfills.js"
+      },
+      {
+        "options": {},
+        "type": "css",
+        "key": "styles.css"
+      }
+    ]
+  },
+  {
+    "basePath": "klaviyo-integration-start/2d694a75876e11d5e6c787d3cd66bfdbe6d8e36e",
+    "active": true,
+    "autostart": true,
+    "dependencies": [],
+    "name": "klaviyo-integration-start",
+    "resources": [
+      {
+        "options": {},
+        "type": "js",
+        "key": "klaviyo-integration-start.js"
+      }
+    ]
+  },
+  {
+    "basePath": "klaviyo-integration-ui/ea9f8bcb4d2c93c2c62983927c07228b958b00e6",
+    "active": true,
+    "autostart": false,
+    "dependencies": [],
+    "name": "klaviyo-integration-ui",
+    "resources": [
+      {
+        "options": {},
+        "type": "js",
+        "key": "klaviyo-integration-ui.js"
+      },
+      {
+        "options": {},
+        "type": "css",
+        "key": "style.css"
+      }
+    ]
+  },
+  {
+    "basePath": "kpi-bar-start-plugin/8e1a24d7c2b36a6af48fb051d09cc056e278b28f",
+    "active": true,
+    "autostart": true,
+    "dependencies": [
+      "tswp-plugin-home-start-view"
+    ],
+    "name": "kpi-bar-start-plugin",
+    "resources": [
+      {
+        "options": {},
+        "type": "js",
+        "key": "kpi-bar-start-plugin.js"
+      }
+    ]
+  },
+  {
+    "basePath": "kpi-bar-ui-plugin/8a16aea01e45c7e2ce8a8366fc44d6557c1ee45b",
+    "active": true,
+    "autostart": false,
+    "dependencies": [
+      "kpi-bar-start-plugin"
+    ],
+    "name": "kpi-bar-ui-plugin",
+    "resources": [
+      {
+        "options": {},
+        "type": "js",
+        "key": "kpi-bar-ui-plugin.js"
+      },
+      {
+        "options": {},
+        "type": "css",
+        "key": "style.css"
+      }
+    ]
+  },
+  {
+    "basePath": "legal-whitepaper-start/63f0aab70b682c0a088687f8eb35612caa06f1f7",
+    "active": true,
+    "autostart": true,
+    "dependencies": [],
+    "name": "legal-whitepaper-start",
+    "resources": [
+      {
+        "options": {},
+        "type": "js",
+        "key": "js/chunk-vendors.js"
+      },
+      {
+        "options": {},
+        "type": "js",
+        "key": "js/app.js"
+      }
+    ]
+  },
+  {
+    "basePath": "legal-whitepaper-ui/d6f6178d996b16910ef68931c9c84d00930a98af",
+    "active": true,
+    "autostart": false,
+    "dependencies": [],
+    "name": "legal-whitepaper-ui",
+    "resources": [
+      {
+        "options": {},
+        "type": "js",
+        "key": "legal-whitepaper-ui.js"
+      }
+    ]
+  },
+  {
+    "basePath": "mara-dashboard-guard/42571c9a9a855f15b118d4b8b97c6d2fc4285796",
+    "active": true,
+    "autostart": true,
+    "dependencies": [],
+    "name": "mara-dashboard-guard",
+    "resources": [
+      {
+        "options": {},
+        "type": "js",
+        "key": "mara-dashboard-guard.js"
+      }
+    ]
+  },
+  {
+    "basePath": "mara-dashboard-start/70c5e9f537095cf5d5efb25b2407bdfd92e19e3f",
+    "active": true,
+    "autostart": false,
+    "dependencies": [],
+    "name": "mara-dashboard-start",
+    "resources": [
+      {
+        "options": {},
+        "type": "js",
+        "key": "mara-dashboard-start.js"
+      }
+    ]
+  },
+  {
+    "basePath": "mara-dashboard-ui/e8ce2a70b3d52ac72ff9e113b8a84a0315c21265",
+    "active": true,
+    "autostart": false,
+    "dependencies": [],
+    "name": "mara-dashboard-ui",
+    "resources": [
+      {
+        "options": {},
+        "type": "js",
+        "key": "mara-dashboard-ui.js"
+      }
+    ]
+  },
+  {
+    "basePath": "notification-subscription-manager/311ac94c1326492b8505c4becea16c3535cd08fa",
+    "active": true,
+    "autostart": true,
+    "dependencies": [],
+    "name": "notification-subscription-manager",
+    "resources": [
+      {
+        "options": {},
+        "type": "js",
+        "key": "main.js"
+      }
+    ]
+  },
+  {
+    "basePath": "notifications-bell-menu/51a941a73ffe87b026d9cb7453ac67c1e9096818",
+    "active": true,
+    "autostart": true,
+    "dependencies": [
+      "notification-subscription-manager"
+    ],
+    "name": "notifications-bell-menu",
+    "resources": [
+      {
+        "options": {},
+        "type": "js",
+        "key": "js/chunk-vendors.eb59325a.js"
+      },
+      {
+        "options": {},
+        "type": "js",
+        "key": "js/app.a5a2f679.js"
+      }
+    ]
+  },
+  {
+    "basePath": "product-update-hub-cc/69ffd9b61dcbfcffe061863f650b72cf2059a5b9",
+    "active": true,
+    "autostart": true,
+    "dependencies": [],
+    "name": "product-update-hub-cc",
+    "resources": [
+      {
+        "options": {},
+        "type": "js",
+        "key": "main.js"
+      }
+    ]
+  },
+  {
+    "basePath": "que-customisation-security-start/9d53666708de8e23effce5f6f556f3dc50466d08",
+    "active": true,
+    "autostart": true,
+    "dependencies": [],
+    "name": "que-customisation-security-start",
+    "resources": [
+      {
+        "options": {},
+        "type": "js",
+        "key": "que-customisation-security-start.js"
+      }
+    ]
+  },
+  {
+    "basePath": "que-customisation-start/15dc75f8bac2892ff21e030010d6aaa01c7e94f9",
+    "active": true,
+    "autostart": true,
+    "dependencies": [],
+    "name": "que-customisation-start",
+    "resources": [
+      {
+        "options": {},
+        "type": "js",
+        "key": "que-customisation-start.js"
+      }
+    ]
+  },
+  {
+    "basePath": "que-customisation-ui/80db72c3e20c9cf4475b0a47fa3b601c6ad920a7",
+    "active": true,
+    "autostart": false,
+    "dependencies": [],
+    "name": "que-customisation-ui",
+    "resources": [
+      {
+        "options": {},
+        "type": "js",
+        "key": "que-customisation-ui.js"
+      }
+    ]
+  },
+  {
+    "basePath": "review-inbox/53b07c97ffdc1c71fa9bf137dbee1382bf34e3a8",
+    "active": true,
+    "autostart": false,
+    "dependencies": [],
+    "name": "review-inbox",
+    "resources": [
+      {
+        "options": {},
+        "type": "js",
+        "key": "assets/main-C17Ze3H5.js"
+      }
+    ]
+  },
+  {
+    "basePath": "review-inbox-start/c881521cc5fefe189ed49ad0f69a4bc9d212851c",
+    "active": true,
+    "autostart": true,
+    "dependencies": [],
+    "name": "review-inbox-start",
+    "resources": [
+      {
+        "options": {},
+        "type": "js",
+        "key": "assets/main-BUX8brNu.js"
+      }
+    ]
+  },
+  {
+    "basePath": "seo-profile-start-plugin/9556d7bc4e06337b5db5a09c52c0a6a6763c7be9",
+    "active": true,
+    "autostart": true,
+    "dependencies": [
+      "trustedshops_tswp-plugin-settings",
+      "trustedshops_tswp-plugin-channel-management-autostart"
+    ],
+    "name": "seo-profile-start-plugin",
+    "resources": [
+      {
+        "options": {},
+        "type": "js",
+        "key": "seo-profile-start-plugin.js"
+      }
+    ]
+  },
+  {
+    "basePath": "seo-profile-ui-plugin/f0b2d5c23d4cac0979dedbc1b6c5ba7093e8d558",
+    "active": true,
+    "autostart": false,
+    "dependencies": [],
+    "name": "seo-profile-ui-plugin",
+    "resources": [
+      {
+        "options": {},
+        "type": "js",
+        "key": "seo-profile-ui-plugin.js"
+      }
+    ]
+  },
+  {
+    "basePath": "smart-review-assistant-start/4ab43e6797ecc3d7db8aa6a7e9a9d9f70e125669",
+    "active": true,
+    "autostart": true,
+    "dependencies": [
+      "trustedshops_tswp-plugin-settings",
+      "trustedshops_tswp-plugin-channel-management-autostart"
+    ],
+    "name": "smart-review-assistant-start",
+    "resources": [
+      {
+        "options": {},
+        "type": "js",
+        "key": "main.js"
+      }
+    ]
+  },
+  {
+    "basePath": "smart-review-assistant-ui/9c01cbf0c50e8215c8b6ad3623fe928cb5445a84",
+    "active": true,
+    "autostart": false,
+    "dependencies": [],
+    "name": "smart-review-assistant-ui",
+    "resources": [
+      {
+        "options": {},
+        "type": "js",
+        "key": "runtime.js"
+      },
+      {
+        "options": {},
+        "type": "js",
+        "key": "main.js"
+      },
+      {
+        "options": {},
+        "type": "js",
+        "key": "polyfills.js"
+      },
+      {
+        "options": {},
+        "type": "css",
+        "key": "styles.css"
+      }
+    ]
+  },
+  {
+    "basePath": "sso-client-management-b2b-start/64f802156de0597f889e53f922431b60d847d83b",
+    "active": true,
+    "autostart": true,
+    "dependencies": [
+      "trustedshops_tswp-plugin-settings"
+    ],
+    "name": "sso-client-management-b2b-start",
+    "resources": [
+      {
+        "options": {},
+        "type": "js",
+        "key": "index.js"
+      }
+    ]
+  },
+  {
+    "basePath": "sso-client-management-b2b-ui/ab16dc3af446efa6866ded5b217a617a4aa57deb",
+    "active": true,
+    "autostart": false,
+    "dependencies": [
+      "sso-client-management-b2b-start"
+    ],
+    "name": "sso-client-management-b2b-ui",
+    "resources": [
+      {
+        "options": {},
+        "type": "js",
+        "key": "js/chunk-vendors.js"
+      },
+      {
+        "options": {},
+        "type": "js",
+        "key": "js/app.js"
+      }
+    ]
+  },
+  {
+    "basePath": "task-management/5fef8f84ce876bd182ebf2181721ce9f10a2b429",
+    "active": true,
+    "autostart": true,
+    "dependencies": [],
+    "name": "task-management",
+    "resources": [
+      {
+        "options": {},
+        "type": "js",
+        "key": "task-management.js"
+      },
+      {
+        "options": {},
+        "type": "css",
+        "key": "style.css"
+      }
+    ]
+  },
+  {
+    "basePath": "task-management-start/0be94eb0cf60869508a78d4619e1d892e5c02b44",
+    "active": true,
+    "autostart": true,
+    "dependencies": [],
+    "name": "task-management-start",
+    "resources": [
+      {
+        "options": {},
+        "type": "js",
+        "key": "task-management-start.js"
+      }
+    ]
+  },
+  {
+    "basePath": "tb-experiments-start/18f8a6866d26101641cb9b80d7ea5632bba4de27",
+    "active": true,
+    "autostart": true,
+    "dependencies": [
+      "etrusted-insights-dashboard-start"
+    ],
+    "name": "tb-experiments-start",
+    "resources": [
+      {
+        "options": {},
+        "type": "js",
+        "key": "tb-experiments-start.js"
+      }
+    ]
+  },
+  {
+    "basePath": "tb-experiments-ui/0512f39a3f4525a4c371c04bb2b11010bd7dcbde",
+    "active": true,
+    "autostart": false,
+    "dependencies": [
+      "tb-experiments-start"
+    ],
+    "name": "tb-experiments-ui",
+    "resources": [
+      {
+        "options": {},
+        "type": "js",
+        "key": "tb-experiments-ui.js"
+      },
+      {
+        "options": {},
+        "type": "css",
+        "key": "style.css"
+      }
+    ]
+  },
+  {
+    "basePath": "tps-etrusted-channel-settings-app-start/aa3a1ed2d338126a72688c30694935369539b3e3",
+    "active": true,
+    "autostart": true,
+    "dependencies": [
+      "trustedshops_tswp-plugin-channel-management-autostart"
+    ],
+    "name": "tps-etrusted-channel-settings-app-start",
+    "resources": [
+      {
+        "options": {},
+        "type": "js",
+        "key": "main.js"
+      }
+    ]
+  },
+  {
+    "basePath": "tps-etrusted-channel-settings-app-ui/c97cc3b4bacf8967947b517d4d0dfed6c9962194",
+    "active": true,
+    "autostart": false,
+    "dependencies": [],
+    "name": "tps-etrusted-channel-settings-app-ui",
+    "resources": [
+      {
+        "options": {},
+        "type": "js",
+        "key": "runtime.js"
+      },
+      {
+        "options": {},
+        "type": "js",
+        "key": "main.js"
+      },
+      {
+        "options": {},
+        "type": "js",
+        "key": "polyfills.js"
+      },
+      {
+        "options": {},
+        "type": "css",
+        "key": "styles.css"
+      }
+    ]
+  },
+  {
+    "basePath": "tps-etrusted-marketing-app-start/18805a3eb941452c8771cfd292cdecad238209cc",
+    "active": true,
+    "autostart": true,
+    "dependencies": [],
+    "name": "tps-etrusted-marketing-app-start",
+    "resources": [
+      {
+        "options": {},
+        "type": "js",
+        "key": "main.js"
+      }
+    ]
+  },
+  {
+    "basePath": "tps-etrusted-marketing-app-ui/451637edc45acff1244f9e2d8f7c669089c16081",
+    "active": true,
+    "autostart": false,
+    "dependencies": [],
+    "name": "tps-etrusted-marketing-app-ui",
+    "resources": [
+      {
+        "options": {},
+        "type": "js",
+        "key": "runtime.js"
+      },
+      {
+        "options": {},
+        "type": "js",
+        "key": "main.js"
+      },
+      {
+        "options": {},
+        "type": "js",
+        "key": "polyfills.js"
+      }
+    ]
+  },
+  {
+    "basePath": "trustedshops_tswp-plugin-celebratory-notifications/09e1e30b95dc24e6684ea06991f3aaf450e6e502",
+    "active": true,
+    "autostart": true,
+    "dependencies": [],
+    "name": "trustedshops_tswp-plugin-celebratory-notifications",
+    "resources": [
+      {
+        "options": {},
+        "type": "css",
+        "key": "assets/main-BaNGCoop.css"
+      },
+      {
+        "options": {},
+        "type": "js",
+        "key": "assets/main-DXIW5abw.js"
+      }
+    ]
+  },
+  {
+    "basePath": "trustedshops_tswp-plugin-channel-management-autostart/317d7569fd746128755ea7bdb84abca5cfb16858",
+    "active": true,
+    "autostart": true,
+    "dependencies": [
+      "trustedshops_tswp-plugin-settings"
+    ],
+    "name": "trustedshops_tswp-plugin-channel-management-autostart",
+    "resources": [
+      {
+        "options": {},
+        "type": "js",
+        "key": "index.js"
+      }
+    ]
+  },
+  {
+    "basePath": "trustedshops_tswp-plugin-channel-management-ui/73b490e3ea3e388e3b5694386e4c26bdad66283e",
+    "active": true,
+    "autostart": true,
+    "dependencies": [],
+    "name": "trustedshops_tswp-plugin-channel-management-ui",
+    "resources": [
+      {
+        "options": {},
+        "type": "js",
+        "key": "index.js"
+      }
+    ]
+  },
+  {
+    "basePath": "trustedshops_tswp-plugin-integrations-preview-start/39cd0d43eee281216d015cf97e1f16ceb5295ed5",
+    "active": true,
+    "autostart": true,
+    "dependencies": [],
+    "name": "trustedshops_tswp-plugin-integrations-preview-start",
+    "resources": [
+      {
+        "options": {},
+        "type": "js",
+        "key": "trustedshops_tswp-plugin-integrations-preview-start.js"
+      }
+    ]
+  },
+  {
+    "basePath": "trustedshops_tswp-plugin-integrations-preview-ui/c5f9fc80a0ab27166a7a32ef02060bf6c5dcb333",
+    "active": true,
+    "autostart": false,
+    "dependencies": [],
+    "name": "trustedshops_tswp-plugin-integrations-preview-ui",
+    "resources": [
+      {
+        "options": {},
+        "type": "js",
+        "key": "trustedshops_tswp-plugin-integrations-preview-ui.js"
+      }
+    ]
+  },
+  {
+    "basePath": "trustedshops_tswp-plugin-settings/7a7569b3c532047f3b7fd0ebcb0af5313fe04b10",
+    "active": true,
+    "autostart": true,
+    "dependencies": [],
+    "name": "trustedshops_tswp-plugin-settings",
+    "resources": [
+      {
+        "options": {},
+        "type": "js",
+        "key": "index.js"
+      }
+    ]
+  },
+  {
+    "basePath": "trustedshops_tswp-plugin-unverified-account-start/e559edd513942647d24db1a42996f6913fdde229",
+    "active": true,
+    "autostart": false,
+    "autostartUnverifiedAccount": true,
+    "dependencies": [],
+    "name": "trustedshops_tswp-plugin-unverified-account-start",
+    "resources": [
+      {
+        "options": {},
+        "type": "js",
+        "key": "trustedshops_tswp-plugin-unverified-account-start.js"
+      }
+    ]
+  },
+  {
+    "basePath": "trustedshops_tswp-plugin-user-management-security/08e7b2fccb3671a438522d4674869f9ba5ed58fe",
+    "active": true,
+    "autostart": true,
+    "dependencies": [
+      "trustedshops_tswp-plugin-settings"
+    ],
+    "name": "trustedshops_tswp-plugin-user-management-security",
+    "resources": [
+      {
+        "options": {},
+        "type": "js",
+        "key": "index.js"
+      }
+    ]
+  },
+  {
+    "basePath": "trustedshops_tswp-plugin-user-management-start/94839aca8413ea750c3ca17bca3de992d7e0f9e3",
+    "active": true,
+    "autostart": false,
+    "dependencies": [
+      "trustedshops_tswp-plugin-settings"
+    ],
+    "name": "trustedshops_tswp-plugin-user-management-start",
+    "resources": [
+      {
+        "options": {},
+        "type": "js",
+        "key": "trustedshops_tswp-plugin-user-management-start.js"
+      }
+    ]
+  },
+  {
+    "basePath": "trustedshops_tswp-plugin-user-management-ui/1bbd7d136733f20ae602e4fe13c033ef9529f5f8",
+    "active": true,
+    "autostart": false,
+    "dependencies": [
+      "trustedshops_tswp-plugin-settings"
+    ],
+    "name": "trustedshops_tswp-plugin-user-management-ui",
+    "resources": [
+      {
+        "options": {},
+        "type": "js",
+        "key": "trustedshops_tswp-plugin-user-management-ui.js"
+      }
+    ]
+  },
+  {
+    "basePath": "trustmark-qi-ui-plugin/0dfa59b1ee41b9041f3b9d05fb5de48d6e7cb16c",
+    "active": true,
+    "autostart": true,
+    "dependencies": [],
+    "name": "trustmark-qi-ui-plugin",
+    "resources": [
+      {
+        "options": {},
+        "type": "js",
+        "key": "vendor.bundle.js"
+      },
+      {
+        "options": {},
+        "type": "js",
+        "key": "main.bundle.js"
+      }
+    ]
+  },
+  {
+    "basePath": "trustmark-start-plugin/f6987b3bd56ecd6f8d65bd00d24160fff8d8abcb",
+    "active": true,
+    "autostart": true,
+    "dependencies": [],
+    "name": "trustmark-start-plugin",
+    "resources": [
+      {
+        "options": {},
+        "type": "js",
+        "key": "vendor.bundle.js"
+      },
+      {
+        "options": {},
+        "type": "js",
+        "key": "main.bundle.js"
+      }
+    ]
+  },
+  {
+    "basePath": "ts-domain-verification-start-plugin/db6621b27723b722e43dc8603d6d7ae5e98c2f58",
+    "active": true,
+    "autostart": true,
+    "autostartUnverifiedAccount": true,
+    "dependencies": [],
+    "name": "ts-domain-verification-start-plugin",
+    "resources": [
+      {
+        "options": {},
+        "type": "js",
+        "key": "ts-domain-verification-start-plugin.js"
+      }
+    ]
+  },
+  {
+    "basePath": "ts-domain-verification-ui-plugin/d1927252e962921b9a01b601c57e5eca5111f120",
+    "active": true,
+    "autostart": false,
+    "autostartUnverifiedAccount": true,
+    "dependencies": [],
+    "name": "ts-domain-verification-ui-plugin",
+    "resources": [
+      {
+        "options": {},
+        "type": "js",
+        "key": "ts-domain-verification-ui-plugin.js"
+      }
+    ]
+  },
+  {
+    "basePath": "ts-masterdata-start-plugin/ade26d4cd68c84a9cde0737dce7a624c1ec9314a",
+    "active": true,
+    "autostart": true,
+    "dependencies": [
+      "trustedshops_tswp-plugin-settings",
+      "trustedshops_tswp-plugin-channel-management-autostart"
+    ],
+    "name": "ts-masterdata-start-plugin",
+    "resources": [
+      {
+        "options": {},
+        "type": "js",
+        "key": "ts-masterdata-start-plugin.js"
+      }
+    ]
+  },
+  {
+    "basePath": "ts-masterdata-ui-plugin/1edc5e386cda8b09e2b0621836f315979c67231d",
+    "active": true,
+    "autostart": true,
+    "dependencies": [],
+    "name": "ts-masterdata-ui-plugin",
+    "resources": [
+      {
+        "options": {},
+        "type": "js",
+        "key": "ts-masterdata-ui-plugin.js"
+      },
+      {
+        "options": {},
+        "type": "css",
+        "key": "style.css"
+      }
+    ]
+  },
+  {
+    "basePath": "ts-notification-settings-plugin/f4e3bbf3d14d8b03ba64d55abd5ebdd236aab040",
+    "active": true,
+    "autostart": false,
+    "dependencies": [],
+    "name": "ts-notification-settings-plugin",
+    "resources": [
+      {
+        "options": {},
+        "type": "js",
+        "key": "js/chunk-vendors.bd6a83b3.js"
+      },
+      {
+        "options": {},
+        "type": "js",
+        "key": "js/app.c91aa1c6.js"
+      }
+    ]
+  },
+  {
+    "basePath": "tswp-plugin-home-start-view/71f6d05ac513095cab6931dc3d38f5cc3362df93",
+    "active": true,
+    "autostart": true,
+    "dependencies": [],
+    "name": "tswp-plugin-home-start-view",
+    "resources": [
+      {
+        "options": {},
+        "type": "js",
+        "key": "tswp-plugin-home-start-view.js"
+      }
+    ]
+  },
+  {
+    "basePath": "tswp-plugin-home-ui-view/68ce2da1acb27d92a548f8850d2e12025708feff",
+    "active": true,
+    "autostart": false,
+    "dependencies": [],
+    "name": "tswp-plugin-home-ui-view",
+    "resources": [
+      {
+        "options": {},
+        "type": "js",
+        "key": "tswp-plugin-home-ui-view.js"
+      },
+      {
+        "options": {},
+        "type": "css",
+        "key": "style.css"
+      }
+    ]
+  },
+  {
+    "basePath": "widgets-analytics-dashboard-start/36338a51183825ef3e6c20e6bc51c69fb9fda382",
+    "active": true,
+    "autostart": true,
+    "dependencies": [],
+    "name": "widgets-analytics-dashboard-start",
+    "resources": [
+      {
+        "options": {},
+        "type": "js",
+        "key": "widgets-analytics-dashboard-start.js"
+      }
+    ]
+  },
+  {
+    "basePath": "widgets-analytics-dashboard-ui/eaed1743608761304f5a045d89ddef9b8abcbe1d",
+    "active": true,
+    "autostart": false,
+    "dependencies": [],
+    "name": "widgets-analytics-dashboard-ui",
+    "resources": [
+      {
+        "options": {},
+        "type": "js",
+        "key": "widgets-analytics-dashboard-ui.js"
+      }
+    ]
+  },
+  {
+    "basePath": "xfb-dashboard-guard/33a698774199def0451aa9e49be5bbf670c8b3ea",
+    "active": true,
+    "autostart": true,
+    "dependencies": [],
+    "name": "xfb-dashboard-guard",
+    "resources": [
+      {
+        "options": {},
+        "type": "js",
+        "key": "xfb-dashboard-guard.js"
+      }
+    ]
+  },
+  {
+    "basePath": "xfb-dashboard-start/8ebe9278a4e6337e314bd20ba70f6aac267433ed",
+    "active": true,
+    "autostart": false,
+    "dependencies": [],
+    "name": "xfb-dashboard-start",
+    "resources": [
+      {
+        "options": {},
+        "type": "js",
+        "key": "xfb-dashboard-start.js"
+      }
+    ]
+  },
+  {
+    "basePath": "xfb-dashboard-ui/83ffd3f5307236793443897dd27a9df6cfbce0df",
+    "active": true,
+    "autostart": false,
+    "dependencies": [],
+    "name": "xfb-dashboard-ui",
+    "resources": [
+      {
+        "options": {},
+        "type": "js",
+        "key": "xfb-dashboard-ui.js"
+      }
+    ]
+  }
+]
