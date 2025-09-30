@@ -1,6 +1,8 @@
 export default defineContentScript({
     matches: [
         "*://app.etrusted.com/*",
+        "*://app.etrusted.site/*",
+        "*://app.etrusted.koeln/*",
     ],
     runAt: 'document_start',
     main() {
