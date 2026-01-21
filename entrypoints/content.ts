@@ -14,7 +14,7 @@ const getTld = () => location.hostname.split('.').pop()
 
 function injectPageScript() {
     const script = document.createElement('script');
-    script.src = browser.runtime.getURL('/cc_extension_page.js');
+    script.src = chrome.runtime.getURL('/cc_extension_page.js');
     (document.head || document.documentElement).appendChild(script);
 
     window.addEventListener('CC_EXTENSION_PAGE_INITIAL_PLUGIN_STATE_ASK', () => {
@@ -23,7 +23,7 @@ function injectPageScript() {
         })
     });
 
-    browser.runtime.onMessage.addListener((message) => {
+    chrome.runtime.onMessage.addListener((message) => {
         if (message.type === 'CC_EXTENSION_BACKGROUND_PLUGIN_STATE_UPDATE') {
             sendToPage('CC_EXTENSION_CONTENT_PLUGIN_STATE_UPDATE', message.data)
         }
@@ -37,12 +37,12 @@ function injectPageScript() {
 
 function sendToBackground(type: string, data: any, cb?: (...args: any[]) => void) {
     if (cb) {
-        browser.runtime.sendMessage({
+        chrome.runtime.sendMessage({
             type,
             data
         }, cb);
     } else {
-        browser.runtime.sendMessage({
+        chrome.runtime.sendMessage({
             type,
             data
         })

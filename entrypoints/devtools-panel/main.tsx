@@ -3,7 +3,7 @@ import {createRoot} from "react-dom/client";
 import {PluginState} from "@/src/types.ts";
 
 const root = document.getElementById('root')
-const port = browser.runtime.connect({name: 'devtools-panel-connection'});
+const port = chrome.runtime.connect({name: 'devtools-panel-connection'});
 
 createRoot(root!).render(
     <StrictMode>
@@ -19,7 +19,7 @@ port.onDisconnect.addListener(() => {
 });
 
 function getTld(cb: (tld: string) => void) {
-    browser.devtools.inspectedWindow.eval(
+    chrome.devtools.inspectedWindow.eval(
         "window.location.hostname",
         function (hostname, isException) {
             if (isException) {
@@ -50,7 +50,7 @@ function App (props: {port: Browser.runtime.Port}) {
             port.postMessage({
                 type: 'CC_EXTENSION_DEVTOOLS_INIT',
                 tld,
-                tabId: browser.devtools.inspectedWindow.tabId
+                tabId: chrome.devtools.inspectedWindow.tabId
             });
         });
     }, [])
@@ -100,7 +100,7 @@ function App (props: {port: Browser.runtime.Port}) {
                                         tld => {
                                             port.postMessage({
                                                 type: 'CC_EXTENSION_DEVTOOLS_PLUGIN_STATE_UPDATE',
-                                                tabId: browser.devtools.inspectedWindow.tabId,
+                                                tabId: chrome.devtools.inspectedWindow.tabId,
                                                 pluginState: newPluginState,
                                                 tld,
                                             });
@@ -124,7 +124,7 @@ function App (props: {port: Browser.runtime.Port}) {
                                         tld => {
                                             port.postMessage({
                                                 type: 'CC_EXTENSION_DEVTOOLS_PLUGIN_STATE_UPDATE',
-                                                tabId: browser.devtools.inspectedWindow.tabId,
+                                                tabId: chrome.devtools.inspectedWindow.tabId,
                                                 pluginState: newPluginState,
                                                 tld,
                                             });
@@ -150,7 +150,7 @@ function App (props: {port: Browser.runtime.Port}) {
                                         tld => {
                                             port.postMessage({
                                                 type: 'CC_EXTENSION_DEVTOOLS_PLUGIN_STATE_UPDATE',
-                                                tabId: browser.devtools.inspectedWindow.tabId,
+                                                tabId: chrome.devtools.inspectedWindow.tabId,
                                                 pluginState: newPluginState,
                                                 tld,
                                             });

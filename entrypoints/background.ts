@@ -5,7 +5,7 @@ const STORAGE_KEY = 'cc_plugin_state-';
 export default defineBackground(async () => {
     listenForDevToolsPanel();
     overwriteNetwork();
-    browser.runtime.onMessage.addListener((message, sender, sendResponse) => {
+    chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
         if (message.type === 'CC_EXTENSION_CONTENT_INITIAL_PLUGIN_STATE_ASK') {
             const tabId = sender.tab?.id
             if (!tabId) throw new Error('No tabId');
@@ -41,7 +41,7 @@ export default defineBackground(async () => {
                 const tabIdsWithSameTld = Object.entries(tabIdTlds).filter(([_, t]) => t === tld).map(([tabId]) => Number(tabId))
 
                 tabIdsWithSameTld.forEach((tabId) => {
-                    browser.tabs.sendMessage(tabId, {
+                    chrome.tabs.sendMessage(tabId, {
                         type: 'CC_EXTENSION_BACKGROUND_PLUGIN_STATE_UPDATE',
                         data: nextPluginState
                     });
@@ -65,19 +65,19 @@ export default defineBackground(async () => {
 
 async function getPluginState(tld: Tld): Promise<PluginState> {
     const key = STORAGE_KEY + tld
-    const result = await browser.storage.local.get(key);
+    const result = await chrome.storage.local.get(key);
     return result[key] || {};
 }
 
 async function setPluginState(newState: PluginState, tld: Tld) {
-    return browser.storage.local.set({[STORAGE_KEY + tld]: newState});
+    return chrome.storage.local.set({[STORAGE_KEY + tld]: newState});
 }
 
 const tabIdTlds: Record<string, Tld> = {}
-const tabIdDevtoolPorts: Record<string, Browser.runtime.Port> = {};
+const tabIdDevtoolPorts: Record<string, chrome.runtime.Port> = {};
 
 async function listenForDevToolsPanel() {
-    browser.runtime.onConnect.addListener(async (port) => {
+    chrome.runtime.onConnect.addListener(async (port) => {
         if (port.name !== 'devtools-panel-connection') return
 
         async function handleDevToolsMessage(message: any) {
@@ -106,7 +106,7 @@ async function listenForDevToolsPanel() {
                     const tabIdsWithSameTld = Object.entries(tabIdTlds).filter(([_, t]) => t === tld).map(([tabId]) => Number(tabId))
 
                     tabIdsWithSameTld.forEach((tabId) => {
-                        browser.tabs.sendMessage(tabId, {
+                        chrome.tabs.sendMessage(tabId, {
                             type: 'CC_EXTENSION_BACKGROUND_PLUGIN_STATE_UPDATE',
                             data: message.pluginState
                         });
@@ -134,7 +134,7 @@ async function listenForDevToolsPanel() {
 }
 
 function overwriteNetwork() {
-    const rules: Browser.declarativeNetRequest.Rule[] = [
+    const rules: chrome.declarativeNetRequest.Rule[] = [
         {
             id: 1,
             priority: 1,
@@ -184,9 +184,9 @@ function overwriteNetwork() {
     ];
 
     // Remove existing rules and then add the new ones
-    browser.declarativeNetRequest.getDynamicRules().then((existingRules) => {
+    chrome.declarativeNetRequest.getDynamicRules().then((existingRules) => {
         const ruleIdsToRemove = existingRules.map(rule => rule.id);
-        browser.declarativeNetRequest.updateDynamicRules({
+        chrome.declarativeNetRequest.updateDynamicRules({
             removeRuleIds: ruleIdsToRemove,
             addRules: rules,
         });
