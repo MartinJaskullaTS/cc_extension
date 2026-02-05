@@ -19,7 +19,7 @@ npm run dev
 - Set the path to your plugin entry point e.g. `src/ui-plugin/plugin-configuration/review-insights/index.plugin.tsx`
 
 # Troubleshoot
-Make sure your local plugin is reachable by opening e.g. `http://localhost:5173/src/ui-plugin/plugin-configuration/review-insights/index.plugin.tsx` in your browser.
+Make sure your local plugin is reachable by opening e.g. `http://localhost:5174/src/ui-plugin/plugin-configuration/review-insights/index.plugin.tsx` in your browser.
 
 # How overriding plugins works without this extension:
 - You need to start Google Chrome with CORS checks disabled
