@@ -1,4 +1,4 @@
-import {CSSProperties, FC, StrictMode, useState} from "react";
+import {CSSProperties, FC, StrictMode, useEffect, useState} from "react";
 import {createRoot} from "react-dom/client";
 import {PluginState} from "@/src/types.ts";
 import {OUR_PLUGINS} from "@/src/ourPlugins.ts";
