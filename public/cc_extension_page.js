@@ -5,7 +5,10 @@ window.addEventListener('CC_EXTENSION_CONTENT_PLUGIN_STATE_UPDATE', (event) => {
 
 // Intercept and read plugins manifest
 // Example: ../docs/app-api.etrusted.site_v0_plugins_b2b.json
-const pluginManifestUrls = ['https://app-api.etrusted.com/v0/plugins/b2b', 'https://app-api.etrusted.site/v0/plugins/b2b', 'https://app-api.etrusted.koeln/v0/plugins/b2b']
+const pluginManifestUrls = [
+    'https://app-api.etrusted.com/v0/plugins/b2b', 'https://app-api.etrusted.site/v0/plugins/b2b', 'https://app-api.etrusted.koeln/v0/plugins/b2b',
+    'https://app-api.etrusted.com/v0/plugins/employees', 'https://app-api.etrusted.site/v0/plugins/employees', 'https://app-api.etrusted.koeln/v0/plugins/employees',
+]
 const originalOpen = XMLHttpRequest.prototype.open;
 const originalSend = XMLHttpRequest.prototype.send;
 XMLHttpRequest.prototype.open = function (...args) {
