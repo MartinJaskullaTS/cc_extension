@@ -12,12 +12,18 @@ createRoot(root!).render(
     </StrictMode>,
 );
 
-port.onDisconnect.addListener(() => {
-    if (root) {
-        root.textContent = 'Connection to background script lost. Please reopen DevTools.';
+// Sends a message to the background service worker, tolerating it having been
+// unloaded (MV3 kills idle service workers, which disconnects this port even
+// while the panel stays open). Without this guard, postMessage on a dead port
+// throws synchronously and crashes whatever handler called it.
+function safePostMessage(port: Browser.runtime.Port, message: unknown, onDisconnected: () => void) {
+    try {
+        port.postMessage(message);
+    } catch (error) {
+        console.error('Could not reach background script. It may have been unloaded — reopen DevTools.', error);
+        onDisconnected();
     }
-    console.error('Disconnected from the background script.');
-});
+}
 
 function getTld(cb: (tld: string) => void) {
     chrome.devtools.inspectedWindow.eval(
@@ -35,6 +41,7 @@ function getTld(cb: (tld: string) => void) {
 function App (props: {port: Browser.runtime.Port}) {
     const [search, setSearch] = useState('')
     const [pluginState, setPluginState] = useState<PluginState>({})
+    const [disconnected, setDisconnected] = useState(false)
     const plugins = Object.values(pluginState).filter(plugin => plugin.name.includes(search))
 
     const ourPlugins = Object.values(pluginState).filter(plugin => OUR_PLUGINS[plugin.name])
@@ -43,12 +50,12 @@ function App (props: {port: Browser.runtime.Port}) {
     function pushPluginState(newPluginState: PluginState) {
         setPluginState(newPluginState)
         getTld(tld => {
-            port.postMessage({
+            safePostMessage(port, {
                 type: 'CC_EXTENSION_DEVTOOLS_PLUGIN_STATE_UPDATE',
                 tabId: chrome.devtools.inspectedWindow.tabId,
                 pluginState: newPluginState,
                 tld,
-            });
+            }, () => setDisconnected(true));
         })
     }
 
@@ -66,24 +73,39 @@ function App (props: {port: Browser.runtime.Port}) {
     }
 
     useEffect(() => {
-        port.onMessage.addListener((message) => {
-            if (message.type === 'CC_EXTENSION_BACKGROUND_PLUGIN_STATE' && root) {
+        function handleMessage(message: any) {
+            if (message.type === 'CC_EXTENSION_BACKGROUND_PLUGIN_STATE') {
                 if (message.data) {
                     setPluginState(message.data);
                 }
             }
-        });
+        }
+
+        function handleDisconnect() {
+            console.error('Disconnected from the background script.');
+            setDisconnected(true);
+        }
+
+        port.onMessage.addListener(handleMessage);
+        port.onDisconnect.addListener(handleDisconnect);
         getTld(tld => {
             // background will send CC_EXTENSION_BACKGROUND_PLUGIN_STATE after it knows the tld.
-            console.log('send init')
-            port.postMessage({
+            safePostMessage(port, {
                 type: 'CC_EXTENSION_DEVTOOLS_INIT',
                 tld,
                 tabId: chrome.devtools.inspectedWindow.tabId
-            });
+            }, () => setDisconnected(true));
         });
+
+        return () => {
+            port.onMessage.removeListener(handleMessage);
+            port.onDisconnect.removeListener(handleDisconnect);
+        }
     }, [])
 
+    if (disconnected) {
+        return <p>Connection to background script lost. Please reopen DevTools.</p>
+    }
 
     const style: CSSProperties = {
         border: '1px solid #dddddd',
@@ -125,24 +147,13 @@ function App (props: {port: Browser.runtime.Port}) {
                             }}>
                             <td style={style}>
                                 <input type="checkbox" checked={pluginState[plugin.basePath]!.on} onChange={e => {
-                                    const newPluginState = {
+                                    pushPluginState({
                                         ...pluginState,
                                         [plugin.basePath]: {
                                             ...pluginState[plugin.basePath]!,
                                             on: e.target.checked
                                         }
-                                    } satisfies PluginState
-                                    setPluginState(newPluginState)
-                                    getTld(
-                                        tld => {
-                                            port.postMessage({
-                                                type: 'CC_EXTENSION_DEVTOOLS_PLUGIN_STATE_UPDATE',
-                                                tabId: chrome.devtools.inspectedWindow.tabId,
-                                                pluginState: newPluginState,
-                                                tld,
-                                            });
-                                        }
-                                    )
+                                    } satisfies PluginState)
                                 }}/>
                             </td>
                             <td style={style}>
@@ -150,24 +161,12 @@ function App (props: {port: Browser.runtime.Port}) {
                             </td>
                             <td style={style}>
                                 <input type="text" value={pluginState[plugin.basePath]!.port} onChange={e => {
-                                    const newPluginState = {
+                                    pushPluginState({
                                         ...pluginState, [plugin.basePath]: {
                                             ...pluginState[plugin.basePath]!,
                                             port: e.target.value
                                         }
-                                    } satisfies PluginState
-                                    setPluginState(newPluginState)
-                                    getTld(
-                                        tld => {
-                                            port.postMessage({
-                                                type: 'CC_EXTENSION_DEVTOOLS_PLUGIN_STATE_UPDATE',
-                                                tabId: chrome.devtools.inspectedWindow.tabId,
-                                                pluginState: newPluginState,
-                                                tld,
-                                            });
-                                        }
-                                    )
-
+                                    } satisfies PluginState)
                                 }}/>
                             </td>
                             <td style={style}>
@@ -176,23 +175,12 @@ function App (props: {port: Browser.runtime.Port}) {
                                     if (path.startsWith("/")) {
                                         path = path.slice(1);
                                     }
-                                    const newPluginState = {
+                                    pushPluginState({
                                         ...pluginState, [plugin.basePath]: {
                                             ...pluginState[plugin.basePath]!,
                                             path
                                         }
-                                    } satisfies PluginState
-                                    setPluginState(newPluginState)
-                                    getTld(
-                                        tld => {
-                                            port.postMessage({
-                                                type: 'CC_EXTENSION_DEVTOOLS_PLUGIN_STATE_UPDATE',
-                                                tabId: chrome.devtools.inspectedWindow.tabId,
-                                                pluginState: newPluginState,
-                                                tld,
-                                            });
-                                        }
-                                    )
+                                    } satisfies PluginState)
                                 }}/>
                             </td>
                         </tr>
