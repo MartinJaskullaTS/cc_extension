@@ -8,4 +8,6 @@ export const OUR_PLUGINS: Record<string, { port: string, path: string }> = {
     'etrusted-sentiment-analysis-details-dashboard-ui': {port: '5176', path: 'src/ui-plugin/plugin-configuration/sentiment-analysis-details/index.plugin.tsx'},
     'etrusted-competitor-dashboard-ui': {port: '5177', path: 'src/ui-plugin/plugin-configuration/competitor/index.plugin.tsx'},
     'etrusted-smart-insights-dashboard-ui': {port: '5178', path: 'src/ui-plugin/plugin-configuration/smart-insights/index.plugin.tsx'},
+    'etrusted-explorer-mode-dashboard-ui': {port: '5179', path: 'src/ui-plugin/plugin-configuration/explorer-mode/index.plugin.tsx'},
+    'etrusted-feature-booking-dashboard-ui': {port: '5180', path: 'src/ui-plugin/plugin-configuration/feature-booking/index.plugin.tsx'},
 }
