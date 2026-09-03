@@ -179,7 +179,7 @@ function overwriteNetwork() {
             },
             condition: {
                 // $ makes sure we let scripts with query parameter through.
-                regexFilter: '^https:\\/\\/app\\.etrusted\\.(?:com|site|koeln)/plugins/.*\\.js$',
+                regexFilter: '^https:\\/\\/(?:app\\.etrusted\\.(?:com|site|koeln)|employees(?:-integr|-qa)?\\.trustedshops\\.com)/plugins/.*\\.js$',
                 resourceTypes: ['script'],
             },
         },
