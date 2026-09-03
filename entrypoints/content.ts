@@ -3,6 +3,9 @@ export default defineContentScript({
         "*://app.etrusted.com/*",
         "*://app.etrusted.site/*",
         "*://app.etrusted.koeln/*",
+        "*://employees.trustedshops.com/*",
+        "*://employees-qa.trustedshops.com/*",
+        "*://employees-integr.trustedshops.com/*"
     ],
     runAt: 'document_start',
     main() {
