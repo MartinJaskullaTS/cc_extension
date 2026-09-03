@@ -1,4 +1,5 @@
 import {Plugins, PluginState, Tld} from "@/src/types.ts";
+import {OUR_PLUGINS} from "@/src/ourPlugins.ts";
 
 const STORAGE_KEY = 'cc_plugin_state-';
 
@@ -26,11 +27,12 @@ export default defineBackground(async () => {
                     if (networkPlugin.basePath in currentPluginState) {
                         nextPluginState[networkPlugin.basePath] = currentPluginState[networkPlugin.basePath]!;
                     } else {
+                        const override = OUR_PLUGINS[networkPlugin.name]
                         nextPluginState[networkPlugin.basePath] = {
                             basePath: networkPlugin.basePath,
-                            on: false,
-                            port: '',
-                            path: '',
+                            on: Boolean(override),
+                            port: override?.port ?? '',
+                            path: override?.path ?? '',
                             name: networkPlugin.name
                         };
                     }
