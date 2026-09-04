@@ -2,33 +2,43 @@
     const originalUrl = document.currentScript?.src
     const basePath = new URL(originalUrl).pathname.split('/').slice(2, 4).join('/')
 
+    function loadRealPlugin() {
+        const passthroughUrl = new URL(originalUrl);
+        passthroughUrl.searchParams.set('x-ext-passthrough', 'true');
+        const originalScript = document.createElement('script');
+        originalScript.src = passthroughUrl.toString();
+        document.head.appendChild(originalScript);
+    }
+
     function applyOverride(pluginState) {
         const plugin = pluginState[basePath]
 
         if (!plugin?.on) {
-            const passthroughUrl = new URL(originalUrl);
-            passthroughUrl.searchParams.set('x-ext-passthrough', 'true');
-            const originalScript = document.createElement('script');
-            originalScript.src = passthroughUrl.toString();
-            document.head.appendChild(originalScript);
+            loadRealPlugin();
             return
         }
 
         const {path, port} = plugin
 
-        const reactRefreshScript = document.createElement("script");
-        reactRefreshScript.type = "module";
-        reactRefreshScript.innerHTML = `
+        // No local dev server on that port (e.g. `npm start` isn't running) — behave
+        // as if the extension weren't installed instead of leaving the page broken.
+        fetch(`http://localhost:${port}/@vite/client`).then(() => {
+            const reactRefreshScript = document.createElement("script");
+            reactRefreshScript.type = "module";
+            reactRefreshScript.innerHTML = `
         import RefreshRuntime from 'http://localhost:${port}/@react-refresh'
         RefreshRuntime.injectIntoGlobalHook(window)
         window.$RefreshReg$ = () => {}
         window.$RefreshSig$ = () => (type) => type
         window.__vite_plugin_react_preamble_installed__ = true
     `;
-        document.body.append(reactRefreshScript);
+            document.body.append(reactRefreshScript);
 
-        import(`http://localhost:${port}/@vite/client`);
-        import(`http://localhost:${port}/${path}`);
+            import(`http://localhost:${port}/@vite/client`);
+            import(`http://localhost:${port}/${path}`);
+        }).catch(() => {
+            loadRealPlugin();
+        });
     }
 
     if (window.__cc_extension_plugin_state) {
