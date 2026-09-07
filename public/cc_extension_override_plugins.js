@@ -34,8 +34,10 @@
     `;
             document.body.append(reactRefreshScript);
 
-            import(`http://localhost:${port}/@vite/client`);
-            import(`http://localhost:${port}/${path}`);
+            return Promise.all([
+                import(`http://localhost:${port}/@vite/client`),
+                import(`http://localhost:${port}/${path}`),
+            ]);
         }).catch(() => {
             loadRealPlugin();
         });
