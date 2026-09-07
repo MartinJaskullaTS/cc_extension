@@ -13,7 +13,7 @@ export default defineContentScript({
     },
 });
 
-const getTld = () => location.hostname.split('.').pop()
+const getHost = () => location.hostname
 
 function injectPageScript() {
     const script = document.createElement('script');
@@ -21,7 +21,7 @@ function injectPageScript() {
     (document.head || document.documentElement).appendChild(script);
 
     window.addEventListener('CC_EXTENSION_PAGE_INITIAL_PLUGIN_STATE_ASK', () => {
-        sendToBackground('CC_EXTENSION_CONTENT_INITIAL_PLUGIN_STATE_ASK', {tld: getTld()}, pluginState => {
+        sendToBackground('CC_EXTENSION_CONTENT_INITIAL_PLUGIN_STATE_ASK', {host: getHost()}, pluginState => {
             sendToPage('CC_EXTENSION_CONTENT_PLUGIN_STATE_UPDATE', pluginState)
         })
     });
@@ -34,7 +34,7 @@ function injectPageScript() {
 
     // @ts-expect-error
     window.addEventListener('CC_EXTENSION_PAGE_PLUGINS', (event: CustomEvent) => {
-        sendToBackground('CC_EXTENSION_CONTENT_PLUGINS', {tld: getTld(), plugins: event.detail})
+        sendToBackground('CC_EXTENSION_CONTENT_PLUGINS', {host: getHost(), plugins: event.detail})
     });
 }
 

@@ -25,7 +25,7 @@ function safePostMessage(port: Browser.runtime.Port, message: unknown, onDisconn
     }
 }
 
-function getTld(cb: (tld: string) => void) {
+function getHost(cb: (host: string) => void) {
     chrome.devtools.inspectedWindow.eval(
         "window.location.hostname",
         function (hostname, isException) {
@@ -33,7 +33,7 @@ function getTld(cb: (tld: string) => void) {
                 console.error("Could not evaluate hostname:", isException);
                 return;
             }
-            cb((hostname as string).split('.').pop() as string);
+            cb(hostname as string);
         }
     );
 }
@@ -49,12 +49,12 @@ function App (props: {port: Browser.runtime.Port}) {
 
     function pushPluginState(newPluginState: PluginState) {
         setPluginState(newPluginState)
-        getTld(tld => {
+        getHost(host => {
             safePostMessage(port, {
                 type: 'CC_EXTENSION_DEVTOOLS_PLUGIN_STATE_UPDATE',
                 tabId: chrome.devtools.inspectedWindow.tabId,
                 pluginState: newPluginState,
-                tld,
+                host,
             }, () => setDisconnected(true));
         })
     }
@@ -88,11 +88,11 @@ function App (props: {port: Browser.runtime.Port}) {
 
         port.onMessage.addListener(handleMessage);
         port.onDisconnect.addListener(handleDisconnect);
-        getTld(tld => {
-            // background will send CC_EXTENSION_BACKGROUND_PLUGIN_STATE after it knows the tld.
+        getHost(host => {
+            // background will send CC_EXTENSION_BACKGROUND_PLUGIN_STATE after it knows the host.
             safePostMessage(port, {
                 type: 'CC_EXTENSION_DEVTOOLS_INIT',
-                tld,
+                host,
                 tabId: chrome.devtools.inspectedWindow.tabId
             }, () => setDisconnected(true));
         });

@@ -9,5 +9,9 @@ export const OUR_PLUGINS: Record<string, { port: string, path: string }> = {
     'etrusted-competitor-dashboard-ui': {port: '5177', path: 'src/ui-plugin/plugin-configuration/competitor/index.plugin.tsx'},
     'etrusted-smart-insights-dashboard-ui': {port: '5178', path: 'src/ui-plugin/plugin-configuration/smart-insights/index.plugin.tsx'},
     'etrusted-explorer-mode-dashboard-ui': {port: '5179', path: 'src/ui-plugin/plugin-configuration/explorer-mode/index.plugin.tsx'},
+    // Employees-only plugin. Neither `start` nor `start:claude` serves it, so port 5180
+    // is never up and this entry always falls back to the real plugin. Beware: vite has no
+    // `strictPort`, so a spillover dev server can land on 5180 and answer /@vite/client
+    // while 404ing this path.
     'etrusted-feature-booking-dashboard-ui': {port: '5180', path: 'src/ui-plugin/plugin-configuration/feature-booking/index.plugin.tsx'},
 }

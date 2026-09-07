@@ -1,4 +1,4 @@
-import {Plugins, PluginState, Tld} from "@/src/types.ts";
+import {Host, Plugins, PluginState} from "@/src/types.ts";
 import {OUR_PLUGINS} from "@/src/ourPlugins.ts";
 
 const STORAGE_KEY = 'cc_plugin_state-';
@@ -10,16 +10,16 @@ export default defineBackground(async () => {
         if (message.type === 'CC_EXTENSION_CONTENT_INITIAL_PLUGIN_STATE_ASK') {
             const tabId = sender.tab?.id
             if (!tabId) throw new Error('No tabId');
-            tabIdTlds[tabId] = message.data.tld
-            const tld = message.data.tld
-            getPluginState(tld).then(pluginState => {
+            tabIdHosts[tabId] = message.data.host
+            const host = message.data.host
+            getPluginState(host).then(pluginState => {
                 sendResponse(pluginState)
             })
             return true
         } else if (message.type === 'CC_EXTENSION_CONTENT_PLUGINS') {
-            const tld = message.data.tld
+            const host = message.data.host
 
-            getPluginState(tld).then(async currentPluginState => {
+            getPluginState(host).then(async currentPluginState => {
                 const nextPluginState: PluginState = {}
                 const networkPlugins: Plugins = message.data.plugins;
 
@@ -38,18 +38,18 @@ export default defineBackground(async () => {
                     }
                 }
 
-                await setPluginState(nextPluginState, tld);
+                await setPluginState(nextPluginState, host);
 
-                const tabIdsWithSameTld = Object.entries(tabIdTlds).filter(([_, t]) => t === tld).map(([tabId]) => Number(tabId))
+                const tabIdsWithSameHost = Object.entries(tabIdHosts).filter(([_, h]) => h === host).map(([tabId]) => Number(tabId))
 
-                tabIdsWithSameTld.forEach((tabId) => {
+                tabIdsWithSameHost.forEach((tabId) => {
                     chrome.tabs.sendMessage(tabId, {
                         type: 'CC_EXTENSION_BACKGROUND_PLUGIN_STATE_UPDATE',
                         data: nextPluginState
                     });
                 })
 
-                const devtoolPorts = tabIdsWithSameTld
+                const devtoolPorts = tabIdsWithSameHost
                     .map(tabId => tabIdDevtoolPorts[tabId]!)
                     // Might not be open
                     .filter(Boolean);
@@ -65,17 +65,17 @@ export default defineBackground(async () => {
     })
 });
 
-async function getPluginState(tld: Tld): Promise<PluginState> {
-    const key = STORAGE_KEY + tld
+async function getPluginState(host: Host): Promise<PluginState> {
+    const key = STORAGE_KEY + host
     const result = await chrome.storage.local.get(key);
     return result[key] || {};
 }
 
-async function setPluginState(newState: PluginState, tld: Tld) {
-    return chrome.storage.local.set({[STORAGE_KEY + tld]: newState});
+async function setPluginState(newState: PluginState, host: Host) {
+    return chrome.storage.local.set({[STORAGE_KEY + host]: newState});
 }
 
-const tabIdTlds: Record<string, Tld> = {}
+const tabIdHosts: Record<string, Host> = {}
 const tabIdDevtoolPorts: Record<string, chrome.runtime.Port> = {};
 
 async function listenForDevToolsPanel() {
@@ -92,8 +92,8 @@ async function listenForDevToolsPanel() {
                     }
                 })
 
-                const tld = message.tld
-                const pluginState = await getPluginState(tld);
+                const host = message.host
+                const pluginState = await getPluginState(host);
                 port.postMessage({
                     type: 'CC_EXTENSION_BACKGROUND_PLUGIN_STATE',
                     data: pluginState,
@@ -101,20 +101,20 @@ async function listenForDevToolsPanel() {
                 return
             }
             if (message.type === 'CC_EXTENSION_DEVTOOLS_PLUGIN_STATE_UPDATE') {
-                const tld = message.tld
-                await setPluginState(message.pluginState, tld);
+                const host = message.host
+                await setPluginState(message.pluginState, host);
                 try {
                     // TODO Duplicate code
-                    const tabIdsWithSameTld = Object.entries(tabIdTlds).filter(([_, t]) => t === tld).map(([tabId]) => Number(tabId))
+                    const tabIdsWithSameHost = Object.entries(tabIdHosts).filter(([_, h]) => h === host).map(([tabId]) => Number(tabId))
 
-                    tabIdsWithSameTld.forEach((tabId) => {
+                    tabIdsWithSameHost.forEach((tabId) => {
                         chrome.tabs.sendMessage(tabId, {
                             type: 'CC_EXTENSION_BACKGROUND_PLUGIN_STATE_UPDATE',
                             data: message.pluginState
                         });
                     })
 
-                    const devtoolPorts = tabIdsWithSameTld
+                    const devtoolPorts = tabIdsWithSameHost
                         .map(tabId => tabIdDevtoolPorts[tabId]!)
                         // Might not be open
                         .filter(Boolean);
